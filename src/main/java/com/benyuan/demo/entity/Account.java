@@ -3,6 +3,8 @@ package com.benyuan.demo.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
 /**
  * Created by D.chen.g on 2018/5/13.
  */
@@ -10,16 +12,19 @@ import javax.persistence.Id;
 public class Account {
     @Id
     @GeneratedValue
-    private int id ;
+    private int owid ;
     private String name ;
     private double money;
+    private double memos;
+    @Transient
+    private double memoss;
 
     public int getId() {
-        return id;
+        return owid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int owid) {
+        this.owid = owid;
     }
 
     public String getName() {
@@ -40,9 +45,27 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "id=" + id +
+                "id=" + owid +
                 ", name='" + name + '\'' +
                 ", money=" + money +
                 '}';
+    }
+
+
+
+    public double getMemoss() {
+        return memoss;
+    }
+
+    public void setMemoss(double memoss) {
+        this.memoss = memoss;
+    }
+
+    public double getMemos() {
+        return memos;
+    }
+
+    public void setMemos(double memos) {
+        this.memos = memos;
     }
 }
