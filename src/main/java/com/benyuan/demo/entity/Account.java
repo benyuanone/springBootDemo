@@ -1,9 +1,15 @@
 package com.benyuan.demo.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 /**
  * Created by D.chen.g on 2018/5/13.
  */
+@Entity
 public class Account {
+    @Id
+    @GeneratedValue
     private int id ;
     private String name ;
     private double money;
@@ -30,5 +36,13 @@ public class Account {
 
     public void setMoney(double money) {
         this.money = money;
+    }
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", money=" + money +
+                '}';
     }
 }
